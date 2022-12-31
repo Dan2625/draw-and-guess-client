@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Card from './Card';
+//import Card from './Card';
 import classes from './Canvas2.module.css';
 
 const Canvas2 = ({ onCanvasChange }) => {

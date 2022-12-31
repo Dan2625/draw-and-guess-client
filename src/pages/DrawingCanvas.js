@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from '../components/UI/Button';
-import Canvas from '../components/UI/Canvas';
+//import Button from '../components/UI/Button';
+//import Canvas from '../components/UI/Canvas';
 import Canvas2 from '../components/UI/Canvas2';
 import Card from '../components/UI/Card';
 

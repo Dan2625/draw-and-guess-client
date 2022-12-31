@@ -74,7 +74,7 @@ const GuessingPage = ({ activeSocket }) => {
     socket.on(SOCKET_TYPES.GUSSING_INCORRECT, (data) => {
       console.log('GUSSING_INCORRECT');
     });
-  }, [socket, userName]);
+  }, [socket, userName, gameInfo]);
 
   const checkWord = (data) => {
     socket.emit(SOCKET_TYPES.GUSSING_WORD, {
@@ -91,7 +91,7 @@ const GuessingPage = ({ activeSocket }) => {
         <div>
           <Card>
             <div style={{ width: 1080 / 2, height: 1920 / 2 }}>
-              <img />
+              <img alt="guessung draw" />
             </div>
           </Card>
         </div>

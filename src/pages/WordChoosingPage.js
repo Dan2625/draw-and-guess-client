@@ -135,6 +135,12 @@ const WordChoosingPage = ({ activeSocket }) => {
                 </Button>
               </li>
             </div>
+            <div>
+              <li>
+                <h3>{selectedWord}</h3>
+                <Button className={classes.btn}>goodluck!</Button>
+              </li>
+            </div>
           </ul>
         </div>
       );

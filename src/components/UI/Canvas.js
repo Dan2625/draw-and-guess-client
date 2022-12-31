@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Card from './Card';
-import classes from './Canvas.module.css';
+//import classes from './Canvas.module.css';
 
 const Canvas = ({ onCanvasChange }) => {
   const canvasRef = useRef(null);

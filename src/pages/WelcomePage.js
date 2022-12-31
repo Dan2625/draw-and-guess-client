@@ -8,7 +8,7 @@ const WelcomePage = () => {
   const navigate = useNavigate();
 
   const [userName, setUserName] = useState('');
-  const [usernameIsValid, setUsernameIsValid] = useState();
+  //const [usernameIsValid, setUsernameIsValid] = useState();
   const checkNameIsValid = () => {
     const isValidName = userName.trim().length > 1;
     if (!isValidName) console.log('Name is not valid!');
@@ -33,9 +33,10 @@ const WelcomePage = () => {
       <form>
         <h2>Sign in to Play</h2>
         <div
-          className={`${classes.control} ${
+          className={`${classes.control}`}
+          /* className={`${classes.control} ${
             usernameIsValid === false ? classes.invalid : ''
-          }`}
+          }`} */
         >
           <input
             type="text"
