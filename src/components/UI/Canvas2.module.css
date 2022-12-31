@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.colorButtonBox {
+  position: absolute;
+  background: rgb(210, 210, 210);
+  padding: 5px;
+  margin: 5px;
+  border-radius: 10px;
+  bottom: 0;
+}
+
+.colorButtonBox div {
+  transition: .1s linear;
+  position: relative;
+  float: left;
+  margin: 5px;
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  z-index: 3;
+}
+
+.colorButtonBox .eraserButton {
+  transition: .1s linear;
+  position: relative;
+  float: left;
+  margin: 5px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  z-index: 3;
+  background: white;
+}
+
+.colorButtonBox .eraserButton:hover {
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+}
+
+.colorButtonBox .colorButton:hover {
+  transition: .1s linear;
+  width: 45px;
+  height: 45px;
+  margin: 2.5px;
+}
+
+.colorButtonBox .black {
+  background: black;
+}
+
+.colorButtonBox .blue {
+  background: blue;
+}
+
+.colorButtonBox .red {
+  background: red;
+}
+
+.colorButtonBox .green {
+  background: green;
+}
+
+.colorButtonBox .yellow {
+  background: yellow;
+}

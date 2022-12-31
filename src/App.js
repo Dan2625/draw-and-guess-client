@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import WelcomePage from './pages/WelcomePage';
+import WordChoosingPage from './pages/WordChoosingPage';
+import GuessingPage from './pages/GuessingPage';
+//import './App.css';
+import Layout from './Layout/Layout';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<WelcomePage />} />
+            <Route path="/drawer" element={<WordChoosingPage />} />
+            <Route path="/guessing" element={<GuessingPage />} />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
     </div>
   );
 }
