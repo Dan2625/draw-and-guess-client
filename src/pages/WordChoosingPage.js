@@ -69,7 +69,7 @@ const WordChoosingPage = ({ activeSocket }) => {
       setGameInfo({ ...gameInfo, gameDuration, points });
       socket.disconnect();
     });
-  }, [userName, socket]);
+  }, [userName, socket, gameInfo]);
 
   useEffect(() => {
     setEasyWord(randomWords({ exactly: 1, maxLength: 3 }));
