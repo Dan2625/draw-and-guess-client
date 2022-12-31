@@ -31,7 +31,7 @@ const WelcomePage = () => {
   return (
     <Card className={classes.login}>
       <form>
-        <h2>Sign in to Play</h2>
+        <h2>Log in to Play</h2>
         <div
           className={`${classes.control}`}
           /* className={`${classes.control} ${

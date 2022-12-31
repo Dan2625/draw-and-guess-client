@@ -13,6 +13,7 @@ const WordChoosingPage = ({ activeSocket }) => {
   const [easyWord, setEasyWord] = useState('');
   const [mediumWord, setMediumWord] = useState('');
   const [hardWord, setHardWord] = useState('');
+  // eslint-disable-next-line no-unused-vars
   const [selectedWord, setSelectedWord] = useState('');
   const [socket, setSocket] = useState(undefined);
   const [gameState, setGameState] = useState(false);
@@ -33,43 +34,45 @@ const WordChoosingPage = ({ activeSocket }) => {
   }, []);
 
   useEffect(() => {
-    if (!socket) return;
-    console.log('drawing is working');
-    //handle socket connection failure
-    socket.emit('drawerUser', {
-      type: 'drawer',
-      userName,
-    });
-    setSocket(socket);
-    socket.on(SOCKET_TYPES.CONNECTED, (data) => {
-      setGameState(SOCKET_TYPES.CONNECTED);
-    });
-    socket.on(SOCKET_TYPES.MATCHED, (data) => {
-      console.log('choose a word', data);
-      setGameState(SOCKET_TYPES.MATCHED);
-      setGameInfo({
-        drawerUserName: data.drawerUserName,
-        guessUserName: data.guessUserName,
-        gameId: data.gameId,
-        startedTime: data.startedTime,
+    if (socket) {
+      console.log('drawing is working');
+      //handle socket connection failure
+      socket.emit('drawerUser', {
+        type: 'drawer',
+        userName,
       });
-    });
-    socket.on(SOCKET_TYPES.GAME_STARTED, (data) => {
-      console.log('game started', data);
-      setGameState(SOCKET_TYPES.GAME_STARTED);
-    });
-    socket.on(SOCKET_TYPES.WAITING_FOR_PLAYER_TO_JOIN, (data) => {
-      console.log('WAITING', data);
-      setGameState(SOCKET_TYPES.WAITING_FOR_PLAYER_TO_JOIN);
-    });
-    socket.on(SOCKET_TYPES.GAME_FINISHED, (data) => {
-      console.log('GAME_FINISHED', data);
-      const { gameDuration, points } = data;
-      setGameState(SOCKET_TYPES.GAME_FINISHED);
-      setGameInfo({ ...gameInfo, gameDuration, points });
-      socket.disconnect();
-    });
-  }, [userName, socket, gameInfo]);
+      setSocket(socket);
+      socket.on(SOCKET_TYPES.CONNECTED, (data) => {
+        setGameState(SOCKET_TYPES.CONNECTED);
+      });
+      socket.on(SOCKET_TYPES.MATCHED, (data) => {
+        console.log('choose a word', data);
+        setGameState(SOCKET_TYPES.MATCHED);
+        setGameInfo({
+          drawerUserName: data.drawerUserName,
+          guessUserName: data.guessUserName,
+          gameId: data.gameId,
+          startedTime: data.startedTime,
+        });
+      });
+      socket.on(SOCKET_TYPES.GAME_STARTED, (data) => {
+        console.log('game started', data);
+        setGameState(SOCKET_TYPES.GAME_STARTED);
+      });
+      socket.on(SOCKET_TYPES.WAITING_FOR_PLAYER_TO_JOIN, (data) => {
+        console.log('WAITING', data);
+        setGameState(SOCKET_TYPES.WAITING_FOR_PLAYER_TO_JOIN);
+      });
+      socket.on(SOCKET_TYPES.GAME_FINISHED, (data) => {
+        console.log('GAME_FINISHED', data);
+        const { gameDuration, points } = data;
+        setGameState(SOCKET_TYPES.GAME_FINISHED);
+        setGameInfo({ ...gameInfo, gameDuration, points });
+        socket.disconnect();
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [socket]);
 
   useEffect(() => {
     setEasyWord(randomWords({ exactly: 1, maxLength: 3 }));
@@ -133,12 +136,6 @@ const WordChoosingPage = ({ activeSocket }) => {
                 >
                   Choose
                 </Button>
-              </li>
-            </div>
-            <div>
-              <li>
-                <h3>{selectedWord}</h3>
-                <Button className={classes.btn}>goodluck!</Button>
               </li>
             </div>
           </ul>
