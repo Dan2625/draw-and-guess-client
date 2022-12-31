@@ -26,7 +26,9 @@ const WordChoosingPage = ({ activeSocket }) => {
   const userName = location.state.userName;
 
   useEffect(() => {
-    const newSocket = socketIO.connect('http://localhost:4001');
+    const newSocket = socketIO.connect(
+      'https://draw-and-guess-serv.herokuapp.com/'
+    );
     setSocket(newSocket);
   }, []);
 
