@@ -28,11 +28,14 @@ const GuessingPage = ({ activeSocket }) => {
   }, []);
 
   useEffect(() => {
-    if (!socket) return;
+    if (!socket) {
+      return;
+    }
     socket.emit('guessUser', {
       type: 'guess',
       userName,
     });
+
     setSocket(socket);
     socket.on(SOCKET_TYPES.CONNECTED, (data) => {
       setGameState(SOCKET_TYPES.CONNECTED);
@@ -49,6 +52,7 @@ const GuessingPage = ({ activeSocket }) => {
     });
     socket.on(SOCKET_TYPES.GAME_STARTED, (data) => {
       console.log('game started', data);
+
       setGameState(SOCKET_TYPES.GAME_STARTED);
     });
 

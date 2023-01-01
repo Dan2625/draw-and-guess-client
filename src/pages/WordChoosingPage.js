@@ -37,6 +37,7 @@ const WordChoosingPage = ({ activeSocket }) => {
     if (socket) {
       console.log('drawing is working');
       //handle socket connection failure
+
       socket.emit('drawerUser', {
         type: 'drawer',
         userName,
